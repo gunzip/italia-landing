@@ -43,7 +43,6 @@ jobs:
           root: /home/circleci
           paths:
             - italia-landing
-            - .ssh
 
       - store_artifacts:
           path: /home/circleci/italia-landing/_site
