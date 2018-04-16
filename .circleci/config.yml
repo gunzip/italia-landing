@@ -11,6 +11,8 @@ defaults: &defaults
         BUNDLE_RETRY: 3
         BUNDLE_PATH: vendor/bundle
         JEKYLL_ENV: production
+        WEBSITE_BRANCH: gh-pages
+        GIT_USER_EMAIL: "cittadinanzadigitale@italia.it"
 
 version: 2
 jobs:
@@ -43,6 +45,9 @@ jobs:
           root: /home/circleci
           paths:
             - italia-landing
+            # the following setting is needed in order to avoid errors
+            #  with known_hosts during the deploy job (git push)
+            - .ssh
 
       - store_artifacts:
           path: /home/circleci/italia-landing/_site
